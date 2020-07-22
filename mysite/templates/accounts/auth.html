@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block auth_modal %}
+<!-- <div class="modal auth show" id="authModal">
+    <div class="auth__container login" id="auth-modal-wnd">
+        <div class="auth__header">
+            <div class="header__label" id="auth-modal-article">Login in</div>
+            <a class="header__link" id="auth-modal-link">Create account</a>
+        </div>
+        <form action="" class="auth__form" method="POST">
+            {% csrf_token %}
+            <div class="auth__fields">
+                <input type="text" placeholder="Email" class="email-field" required>
+                <input type="text" placeholder="User name" class="username-field hidden" required>
+                <input type="password" placeholder="Password" class="pass-field" required>
+                <input type="password" placeholder="Repeat password" class="repeat-pass-field hidden" required>
+            </div>
+            <div class="auth__btns">
+                <button class="submit-btn" id="auth-submit-btn" type="submit">Submit</button>
+                <button class="cancel-btn" id="cancelAuthBtn">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="{% static 'js/apps/auth.js' %}"></script> -->
+{% endblock %}

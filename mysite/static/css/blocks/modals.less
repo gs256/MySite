@@ -1,0 +1,210 @@
+//main: ../style.less
+
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: fade(@gray, 70%);
+    top: 0;
+    left: 0;
+    z-index: 150;
+    display: flex;
+    transition: all 0.2s;
+    visibility: hidden;
+    opacity: 0;
+
+    &.show {
+       visibility: visible;
+       opacity: 1;
+        & div { 
+            visibility: visible; 
+            opacity: 1; 
+        }
+    }
+
+    .auth__container {
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+        padding: 30px;
+        transition: all 0.2s;
+        opacity: 0;
+        visibility: hidden;
+        background-image: url('../images/auth-bg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media @w768 {
+            max-width: none;
+            height: 100%;
+            margin: 0; 
+            padding: 15px;
+            padding-top: 60px;  
+        }
+
+        @media @w414 {
+            padding-top: 15px;
+        }
+    
+        .auth__header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+    
+            .header__label {
+                color: @white;
+                font-size: 34px;
+                font-weight: bold;
+            }
+    
+            .header__link {
+                color: @white;
+                font-size: 16px;
+                text-decoration: underline;
+            }
+        }
+    
+        .auth__form {
+    
+            .auth__fields {
+                width: 100%;
+                max-width: 440px;
+    
+                input {
+                    padding: 0 30px;
+                    height: 50px;
+                    width: 100%;
+                    margin-bottom: 30px;
+                    border-radius: 25px;
+                
+                    &.hidden {
+                        display: none;
+                    }
+
+                    @media @w414 {
+                        height: 40px;
+                    }
+                }
+    
+                input::placeholder {
+                    font-weight: 300;
+                    color: lightgray;
+                }
+    
+            }
+
+            .submit-btn {
+                width: 100%;
+                max-width: 440px;
+                height: 50px;
+                border-radius: 25px;
+                font-size: 16px;
+                background-color: @blue;
+                margin-bottom: 15px;
+
+                @media @w414 {
+                    height: 40px;
+                }
+            }
+        }
+
+        .cancel-btn {
+            width: 100%;
+            max-width: 440px;
+            height: 50px;
+            border-radius: 25px;
+            font-size: 16px;
+            background-color: @pink;
+
+            @media @w414 {
+                height: 40px;
+            }
+        }
+    } // Modal auth
+
+    
+    .modal__leave-comment {
+        width: 100%;
+        max-width: 900px;
+        margin: auto;
+        //display: block;
+        background-color: @white;
+        box-shadow: 0px 0px 5.64px 0.36px rgba(@green, 0.4);
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.2s;
+
+        @media @w1024 {
+            margin: 30px 30px auto 30px;
+            max-width: none;
+        }
+
+        @media @w768 {
+            margin: 10px 10px auto 10px;
+        }
+
+        .comment__header {
+            height: 40px;
+            width: 100%;
+            background-color: @gray;
+            display: flex;
+
+            .header__close-btn {
+                width: 60px;
+                height: 100%;
+                margin-left: auto;
+                background-color: @green;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:hover {
+                    z-index: 2;
+                    transform: scale(1.05);
+                    box-shadow: 0px 0px 5.64px 0.36px rgba(@green, 0.4);
+                }
+            }
+        }
+
+        .modal__comment-form {
+
+            textarea {
+                padding: 10px;
+                font-size: 16px;
+                resize: none;
+                width: 100%;
+                max-height: 200px;
+                border-bottom: 1px solid fade(@green, 50%);
+                transition: all 0.2s ease;
+
+                &:hover {
+                    transform: scale(1.01);
+                    box-shadow: 0px 0px 5.64px 0.36px rgba(@green, 0.4);
+                }
+
+            }
+
+            .comment-form__btns {
+                display: flex;
+                justify-content: flex-end;
+
+                .form__btn {
+                    margin: 10px;
+                    padding: 10px 20px;
+                    font-size: inherit;
+                    background-color: @green;
+
+                    &:hover {
+                        transform: scale(1.05);
+                        box-shadow: 0px 0px 5.64px 0.36px rgba(@green, 0.4);
+                    }
+                }
+            }
+    
+        }
+    }
+}

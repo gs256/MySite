@@ -1,0 +1,191 @@
+//main: ../style.less
+
+.article-detail {
+        
+    .detail-section {
+        width: 100%;
+        max-width: 870px;
+        background-color: @white;
+        padding: 10px;
+
+        .detail__img-container{
+            width: 100%;
+            overflow: hidden;
+
+            .detail__image {
+                display: block;
+                max-width: 100%;
+                height: auto;
+            }
+            
+        }
+        
+        .detail__content {
+            
+            .detail__article {
+                font-size: 24px;
+                font-weight: bold;
+                margin: 10px 0;
+            }
+            
+            .detail__text {
+                margin-bottom: 10px;
+            }
+            
+            .detail__action-btns {
+
+                .action-btn {
+                    height: 30px;
+                    padding: 0 10px;
+                    background-color: @green;
+                    display: flex;  
+                    align-items: center ;
+                    transition: box-shadow 0.1s;
+
+                    img {
+                        margin-left: 10px;
+                    }
+
+                    &.share:hover {
+                        box-shadow: 0px 0px 5.64px 0.36px rgba(@green, 0.4);
+                    }
+
+                }
+            }
+        }
+    }
+
+    .comments-section {
+        height: 400px;
+        margin-top: 30px;
+        width: 100%;
+        max-width: 870px;
+        background-color: @white;
+        
+        .comments__head {
+            height: 50px;
+            width: 100%;
+            background-color: @gray;
+            color: @white;
+            display: flex;
+            align-items: center;
+
+            .comments-head__article {
+                margin: 0 10px;
+                
+            }
+
+            .comments-head__btn {
+                padding: 0 20px;
+                font-size: 14px;
+                margin-left: auto;
+                height: 100%;
+                background-color: @green;
+                color: white;
+                transition: 0.1s linear;
+
+                @media @w414 {
+                    font-weight: bold;
+                    font-size: 20px;
+                    span { display: none; }
+                }
+
+                &:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0px 0px 5.64px 0.36px rgba(@green, 0.4);
+                    //z-index: 1;
+                }
+            }
+        }
+
+        .comments__filters-bar  {
+            height: 50px;
+            background-color: @white;
+            display: flex;
+
+
+            .comments__sort-select {
+                margin: 10px;
+                width: 200px;
+                height: 30px;
+                
+                select {
+                    font-size: 14px;
+                    color: @white;
+                    background-color: @green;
+                    border-style: none;
+                    height: 100%;
+                    //padding: 0 10px;
+                    outline: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    border-style: none;
+                    cursor: pointer;
+                }
+
+                .sort-options {
+                    background-color: red;
+                    padding: 20px;
+                    position: absolute;
+                }
+
+            }
+        }
+        
+        .comments__container {
+
+            .comment__item {
+                display: flex;
+
+                .comment__user-icon {
+                    flex: 0;
+                    padding: 10px;
+                }
+
+                .comment__content {
+                    flex: 1;
+                    padding: 5px 0;
+
+                    .comment__username {
+                        display: block;
+                        font-weight: bold;
+                        padding-bottom: 5px;
+                    }
+
+                    .comment__text {
+
+                    }
+                }
+
+                .comment__action-btns {
+                    display: flex;
+                    flex: 0;
+                    align-items: flex-start;
+
+                    .comment__like-btn {
+                        margin: 5px 10px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        .like-icon {
+                            
+                        }
+
+                        .like-count {
+                            font-weight: bold;
+                        }
+                    }
+                    
+                    .comment__reply-btn {
+                        margin: 10px;
+
+                        .reply-icon {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+} // Detail

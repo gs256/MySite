@@ -1,0 +1,73 @@
+ // compress: true
+
+@import "vars";
+
+html {
+    font-size: 10px;
+}
+
+
+a {
+    text-decoration: none;
+    color: @gray;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+button {
+    border-style: none;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+    transition: 0.1s;
+    color: @white;
+
+}
+
+select {
+    font-family: inherit;
+}
+
+input {
+    border-style: none;
+    outline: none;
+    font-family: inherit;
+    color: @gray;
+}
+
+textarea {
+    border-style: none;
+    font-family: inherit;
+    outline: none;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+    -webkit-tap-highlight-color: transparent; 
+}
+
+body {
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;    
+    font-size: 16px;
+    color: @gray;
+    background-color: @light;
+
+    @media @w768 {
+        font-size: 13px;
+    }
+}
+
+@import "blocks/header.less";
+@import "blocks/body.less";
+@import "blocks/footer.less";
+@import "blocks/articles.less";
+@import "blocks/article_detail.less";
+@import "blocks/modals.less";
+@import "blocks/login_register.less";

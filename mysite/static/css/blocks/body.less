@@ -1,0 +1,39 @@
+//main: ../style.less
+
+.body {
+    max-width: 1300px;
+    width: 100%;
+    margin: 15px auto;
+    padding-bottom: 100px;
+    display: flex;  
+    flex-wrap: wrap;
+    justify-content: space-between;  
+    
+    @media @w1360 {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
+        margin: 10px auto;
+    }
+
+    .side-area {
+        width: 400px;
+        display: flex;
+        justify-content: center;
+
+        @media @w1360 {
+            padding-top: 30px;
+            width: 100%
+        }
+
+        .vote-form {
+            width: 400px;
+            height: 480px;
+            //background-color: red;
+            background-image: url("../images/vote-bg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+}

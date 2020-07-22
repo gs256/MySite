@@ -1,0 +1,50 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block home_content %}
+    <div class="articles">
+
+        {% for article in articles_list %}
+        <a href="{% url 'home:article_detail' article.id %}">
+            <div class="articles__tile">
+                <div class="tile__img-container">
+                    <img src="{{ article.image.url }}" class="title__image">
+                </div>
+                <div class="tile__content">
+                    <div class="tile__title">
+                        {{ article.title }}
+                    </div>
+                    <div class="tile__text">
+                        {{ article.text }}
+                    </div>
+                    <div class="tile__info">
+                        <div class="tile-info__date">
+                            {{ article.date}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+
+        <div class="pagination">
+            <a href="#" class="pag__link arrow left">
+                <img src="{% static 'images/arrow-left.svg' %}" alt="">
+            </a>
+
+            <a href="#" class="pag__link">1</a>
+            <a href="#" class="pag__link">2</a>
+            <a href="#" class="pag__link">3</a>
+            <a href="#" class="pag__link">4</a>
+            <a href="#" class="pag__link">5</a>
+            <div href="#" class="pag__link sep">...</div>
+            <a href="#" class="pag__link">10</a>
+
+            <a href="#" class="pag__link arrow right">
+                <img src="{% static 'images/arrow-right.svg' %}">
+            </a>
+        </div>
+
+    </div>
+
+{% endblock home_content %}

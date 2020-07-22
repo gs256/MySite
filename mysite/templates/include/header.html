@@ -1,0 +1,46 @@
+{% load static %}
+
+<div class="header">
+    <a href="{% url 'home:index' %}">
+        <div class="header__logo">logo</div>
+    </a>
+    <div class="header__buttons">
+        <a class="header__btn search">
+            <img class="search-img" src="{% static 'images/search.svg' %}" alt="" height="40">
+        </a>
+        <!-- <a href="{% url 'accounts:register' %}" class="header__btn account" id="header-account-btn"> -->
+        <a class="header__btn account" id="header-account-btn">
+            <img src="{% static 'images/account.svg' %}" alt="" height="40">
+        </a>
+    </div>
+</div>
+<div class="header-nav" id="nav">
+    <a href="{% url 'home:index' %}" class="header-nav__link">
+        <img class="header-nav__img" src="{% static 'images/nav-house.svg' %}">
+        Home
+    </a>
+    <div class="header-nav__sep"></div>
+    <a href="#" class="header-nav__link">
+        <img class="header-nav__img" src="{% static 'images/nav-forum.svg' %}">
+        Forum
+    </a>
+    <div class="header-nav__sep"></div>
+    <a href="#" class="header-nav__link">
+        <img class="header-nav__img" src="{% static 'images/nav-search.svg' %}">
+        Search
+    </a>
+    <div class="header-nav__sep"></div>
+    <a href="#" class="header-nav__link">
+        <img class="header-nav__img" src="{% static 'images/nav-account.svg' %}">
+        Account
+    </a>
+    <div class="header-nav__sep"></div>
+    <a href="{% url 'about:index' %}" class="header-nav__link">
+        <img class="header-nav__img" src="{% static 'images/nav-info.svg' %}">
+        About us
+    </a>
+</div>
+
+<button class="mobile-burger" id="mobileNavToggler">
+    <img class="burger__icon" src="{% static 'images/mobile-menu.svg' %}" width="30">
+</button>

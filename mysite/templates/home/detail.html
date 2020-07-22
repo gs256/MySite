@@ -1,0 +1,99 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block home_content %}
+<div class="article-detail">
+    <div class="detail-section">
+        <div class="detail__img-container">
+            <img class="detail__image" src="{{ article.image.url }}" alt="">
+        </div>
+        <div class="detail__content">
+            <div class="detail__article">
+                {{ article.title }} 
+            </div>
+            <div class="detail__text">
+                {{ article.text }}
+            </div>
+            <div class="detail__action-btns">
+                <button class="action-btn share">
+                    Share
+                    <img src="{% static 'images/share.svg' %}" alt="" width="14">
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="comments-section">
+        <div class="comments__head">
+            <div class="comments-head__article">Comments: 
+            <b>
+                {{ comment_list.count }}
+            </b>
+            </div>
+            <button class="comments-head__btn" id="newCommentBtn">
+                +<span> New comment</span>
+            </button>
+        </div>
+        <div class="comments__filters-bar">
+            <div class="comments__sort-select">
+                <select>
+                    <option value="0">By rating (most liked first)</option>
+                    <option value="1">By rating (least liked first)</option>
+                    <option value="2">By date (newest first)</option>
+                    <option value="3">By date (oldest first)</option>
+                    
+                </select>
+                <div class="sort-options"></div>
+            </div>
+        </div>
+        <div class="comments__container">
+
+            {% for comment in comment_list %}
+            <div class="comment__item">
+                <div class="comment__user-icon">
+                    <img src="{{ comment.user_icon.url }}" width="40" height="40">
+                </div>
+                <div class="comment__content">
+                    <a class="comment__username">
+                        {{ comment.username }}
+                    </a>
+                    <div class="comment__text">
+                        {{ comment.text }}
+                    </div>
+                </div>
+                <div class="comment__action-btns">
+                    <div class="comment__like-btn">
+                        <img class="like-icon" src="{% static 'images/like.svg' %}" width="16" height="16">
+                        <div class="like-count">
+                            {{ comment.number_of_likes }}
+                        </div>
+                    </div>
+                    <div class="comment__reply-btn">
+                        <img class="reply-icon" src="{% static 'images/reply.svg' %}" width="20" height="20">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+<div class="modal comment" id="commentModal">
+    <div class="modal__leave-comment">
+        <div class="comment__header">
+            <button class="header__close-btn" id="commentModalToggler">
+                <img src="{% static 'images/close.svg' %}" width="16" height="16">
+            </button>
+        </div>
+        <form class="modal__comment-form" action="{% url 'home:leave_comment' article.id %}" method="POST">
+            {% csrf_token %}
+            <textarea name="text" cols="30" placeholder="Leave a comment..." rows="10" required></textarea><br>  
+            <div class="comment-form__btns">
+                <button class="form__btn" type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="{% static 'js/apps/article_detail.js' %}"></script>
+{% endblock %}
