@@ -26,6 +26,6 @@ def leave_comment(request, id):
     except:
         raise Http404('Article not found')
 
-    article.comment_set.create(username='FIXME!', text=request.POST['text'])
+    article.comment_set.create(username=request.user.username, text=request.POST['text'])
 
     return HttpResponseRedirect(reverse('home:article_detail', args=(article.id,)))

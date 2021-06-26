@@ -17,9 +17,14 @@ function ToggleLoginOrRegister(authLink) {
     authLink.innerText = authArticle.innerText;
     authArticle.innerText = temp;
 
-    // Toggle hidden fields (username and repeat password)
-    document.getElementById("auth-modal-username").classList.toggle("hidden");
-    document.getElementById("auth-modal-repeat").classList.toggle("hidden");
+    // Toggle hidden fields (email and repeat password)
+    let emailField = document.getElementById("auth-modal-email");
+    emailField.classList.toggle("hidden");
+    emailField.required = !emailField.required;
+
+    let confirmPasswordField = document.getElementById("auth-modal-repeat");
+    confirmPasswordField.classList.toggle("hidden");
+    confirmPasswordField.required = !confirmPasswordField.required;
 
     let actionTxts = {
         login: "Login",
@@ -28,19 +33,15 @@ function ToggleLoginOrRegister(authLink) {
         changeToReg: "No account? Create new!"
     };
 
-    if (authForm.getAttribute("action") == "register") {
+    if (authForm.getAttribute("action") == "account/register/") {
         // Change to login form
-        authForm.setAttribute("action", "login");
-        //authForm.classList.remove("reg");
-        //authForm.classList.add("login");
+        authForm.setAttribute("action", "account/login/");
 
         authArticle.innerText = actionTxts.login;
         authLink.innerText = actionTxts.changeToReg;
     } else { 
         // Change to register form
-        authForm.setAttribute("action", "register");
-        //authForm.classList.remove("login");
-        //authForm.classList.add("reg");
+        authForm.setAttribute("action", "account/register/");
 
         authArticle.innerText = actionTxts.reg;
         authLink.innerText = actionTxts.changeToLogin;
